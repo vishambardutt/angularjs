@@ -18,6 +18,19 @@
 
 let myApp = angular
     .module("myModule", [])
+    .filter("gender", function(){
+        return function (gender){
+            switch (gender){
+                case 1:
+                    return "Male";
+                case 2:
+                    return "Female";
+                case 3:
+                    return "Not Disclosed";
+
+            }
+        }
+    })
     .controller("myController", function ($scope) {
         let employee = {
             firstName: "Vishnu",
@@ -80,7 +93,7 @@ let myApp = angular
                 ]
             }
 
-        ]
+        ];
         $scope.countries = countries;
 
         let websites = [
@@ -148,7 +161,29 @@ let myApp = angular
         ];
 
         $scope.searchPeople = searchPeople;
-        
+        $scope.search = function (item){
+            if($scope.searchText == undefined){
+                return true;
+            }
+            else{
+                if (item.name.toLowerCase().indexOf($scope.searchText.toLowerCase())!=-1 ||
+                item.city.toLowerCase().indexOf($scope.searchText.toLowerCase())!=-1 )
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        //custome filter
+        let cutfilter = [
+            {name: "Rakesh", gender:1, Salary: 44000},
+            {name: "Yutika", gender: 2, Salary: 42000},
+            {name: "Arpit", gender:3,  Salary: 54000},
+            {name: "Deepak", gender:1,  Salary: 54000},
+            {name: "Vartika", gender:2,  Salary: 24000},
+            {name: "Anm", gender:3, Salary: 24000}
+        ];
+        $scope.cutfilter = cutfilter;
 
     });
 
