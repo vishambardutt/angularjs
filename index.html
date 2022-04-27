@@ -205,10 +205,33 @@ table {
 </table>	
 </div>
 <h3>SHORTING DATA</h3>
-<P>
-
-	
-</P>
+<div>
+	OrderBy: <select [(ng-model)]="sortColumn" >
+		<option value="name" selected>Name ASC</option>
+		<option value="dateOfBirth">Date of Birth ASC</option>
+		<option value="Gender">Gender ASC</option>
+		<option value="Salary">Salary ASC</option>
+	</select>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Date of Birth</th>
+				<th>Gender</th>
+				<th>Salary (Number)</th>
+				<th>Salary (Currency)</th>
+				
+			</tr>
+		</thead>
+		<tr ng-repeat="empList in empLists | orderBy:sortColumn">
+			<td>{{empList.name |uppercase}}</td>
+			<td>{{empList.dateofBirth |date:"dd/mm/yyyy"}}</td>
+			<td>{{empList.Gender | lowercase}}</td>
+			<td>{{empList.Salary |number:2 }}</td>
+			<td>{{empList.Salary | currency:INR :1 }}</td>
+		</tr>
+	</table>	
+</div>
 	</div>
 </body>
 </html>

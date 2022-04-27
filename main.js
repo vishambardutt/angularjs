@@ -112,6 +112,18 @@ let myApp = angular
         $scope.empLists = empLists;
         $scope.rowLimit = 3;
 
+
+        let pData = [
+            {name: "Yutika1", dateofBirth: new Date("December 24, 2011"), Gender:"Female", Salary: 44000},
+            {name: "Vartika", dateofBirth: new Date("November 11, 2013"), Gender:"Female", Salary: 42000},
+            {name: "Vipin" , dateofBirth: new Date("April 04, 2009"), Gender:"Male", Salary: 34000},
+            {name: "Arpit", dateofBirth: new Date("Jan 24, 2020"), Gender:"Male", Salary: 54000},
+            {name: "Deepak", dateofBirth: new Date("March 14, 1990"), Gender:"Male", Salary: 54000},
+            {name: "Ankit", dateofBirth: new Date("Sep 20, 2000"), Gender:"Male", Salary: 24000}
+        ];
+
+        $scope.pData = pData;
+
     });
 
     
