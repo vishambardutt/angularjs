@@ -45,6 +45,20 @@
 			font-family: sans-serif;
 			font-size: .8rem;
 		}
+		.arrow-up{
+			width: 0;
+			height: 0;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			border-top: 10px solid black;
+		}
+		.arrow-down{
+			width: 0;
+			height: 0;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			border-top: 10px solid black;
+		}
 	</style>
 </head>
 
@@ -208,7 +222,7 @@
 		</div>
 		<h3>SHORTING DATA</h3>
 		<div>
-			OrderBy: <select [(ng-model)]="sortColumn">
+			OrderBy: <select ng-model="sortColumn">
 				<option value="name" selected>Name ASC</option>
 				<option value="dateOfBirth">Date of Birth ASC</option>
 				<option value="Gender">Gender ASC</option>
@@ -231,6 +245,37 @@
 					<td>{{empList.Gender | lowercase}}</td>
 					<td>{{empList.Salary |number:2 }}</td>
 					<td>{{empList.Salary | currency:INR :1 }}</td>
+				</tr>
+			</table>
+		</div>
+		<h3>SHORT ROW BY TABLE HEADER</h3>
+		<div>
+			
+			<table>
+				<thead>
+					<tr>
+						<th ng-click="sortData('name')">Name
+							<div ng-class="getSortClass('name')"></div>
+						</th>
+						<th ng-click="sortData('dateOfBirth')">Date of Birth
+							<div ng-class="getSortClass('dateOfBirth')"></div>
+						</th>
+						<th ng-click="sortData('Gender')">Gender
+							<div ng-class="getSortClass('Gender')"></div>
+						</th>
+						<th ng-click="sortData('Salary')">Salary (Number)
+							<div ng-class="getSortClass('Salary')"></div>
+						</th>
+					
+
+					</tr>
+				</thead>
+				<tr ng-repeat="pData in pData | orderBy:sortColumn:reverseSort">
+					<td>{{pData.pname }}</td>
+					<td>{{pData.date_ofBirth | date:"dd/mm/yyyy"}}</td>
+					<td>{{pData.gender}}</td>
+					<td>{{pData.salary}}</td>
+					
 				</tr>
 			</table>
 		</div>
