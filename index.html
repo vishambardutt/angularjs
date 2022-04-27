@@ -9,6 +9,7 @@
 	<script src="angular.js"></script>
 	<script src="main.js"></script>
 	<!--<script src="angular.min.js.map"></script>-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<style>
 		td,
 		th {
@@ -44,7 +45,7 @@
 			border: 2px solid rgb(200, 200, 200);
 			letter-spacing: 1px;
 			font-family: sans-serif;
-			font-size: .8rem;
+			//font-size: .8rem;
 		}
 		.arrow-up{
 			width: 0;
@@ -67,9 +68,9 @@
 
 <body ng-controller="myController">
 	<p></p>
-	<div>
+	<div class="container" >
 		{{message}}
-	</div>
+	
 	<p></p>
 	<div>
 		{{["Vish","Ravi", "Kavita"][2]}}
@@ -88,7 +89,7 @@
 		<p>Flag: <img ng-src="{{cntry.flag}}" alt="{{cntry.name + 'flag'}}" style="height:32px; width:50px;" /></p>
 
 	</div>
-	<h3>Two Way Data Binding</h3>
+	<h3>TWO WAY DATA BINDING</h3>
 	<div>
 		<input type="text" ng-model="greeting" />
 		<br>
@@ -282,7 +283,32 @@
 				</tr>
 			</table>
 		</div>
+		<h3>SEARCH FILTER</h3>
+		<P>
+			<div>
+				<p>Search: <input type="text" placeholder="Search " ng-model="searchText"/></p>
+				<table width="50%">
+					<thead>
+						<tr>
+							<th >Name</th>
+							<th>City</th>
+							<th >Gender</th>
+							<th >Salary </th>
+						
+	
+						</tr>
+					</thead>
+					<tr ng-repeat="searchPeople in searchPeople | filter:searchText">
+						<td>{{searchPeople.name}}</td>
+						<td>{{searchPeople.city}}</td>
+						<td>{{searchPeople.Gender}}</td>
+						<td>{{searchPeople.Salary}}</td>
+						
+					</tr>
+				</table>	
+		</P>
 	</div>
+</div>
 </body>
 
 </html>

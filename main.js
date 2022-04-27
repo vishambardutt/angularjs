@@ -138,6 +138,18 @@ let myApp = angular
             return '';
         }
 
+        let searchPeople = [
+            {name: "Yutika", city: "Delhi", Gender:"Female", Salary: 44000},
+            {name: "Vartika", city:"NOida", Gender:"Female", Salary: 42000},
+            {name: "Vipin" , city:"Pune", Gender:"Male", Salary: 34000},
+            {name: "Arpit", city:"Gurgaon", Gender:"Male", Salary: 54000},
+            {name: "Deepak", city:"Agra", Gender:"Male", Salary: 54000},
+            {name: "Ankit", city:"Dehradun", Gender:"Male", Salary: 24000}
+        ];
+
+        $scope.searchPeople = searchPeople;
+        
+
     });
 
     
