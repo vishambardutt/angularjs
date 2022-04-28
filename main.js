@@ -65,36 +65,54 @@ let myApp = angular
         ]
         $scope.cemp = cemp;
 
-        let countries = [
-            {
-                name: "UK",
-                city: [
-                    { name: "London" },
-                    { name: "Manchester" },
-                    { name: "Birmingham" }
-                ]
-            },
+        let countrylist = [
 
             {
-                name: "USA",
-                city: [
-                    { name: "Los Angles" },
-                    { name: "Chicago" },
-                    { name: "Huston" }
-                ]
-            },
-
-            {
-                name: "INDIA",
-                city: [
-                    { name: "Delhi" },
-                    { name: "Pune" },
-                    { name: "Noida" }
-                ]
+              Id: 1,
+              CountryName: "India",
+          
+            }, {
+              Id: 2,
+              CountryName: "America"
             }
-
-        ];
-        $scope.countries = countries;
+          ];
+          
+          let statelist = [{
+              Id: 1,
+              StateName: "Maharashtra",
+              CountryId: 1
+            },
+            {
+              Id: 2,
+              StateName: "MadhyaPradesh",
+              CountryId: 2
+            },
+             {
+              Id: 3,
+              StateName: "Washington",
+              CountryId: 2
+            }
+          ];
+          //city list 
+          let citylist = [{
+              Id: 1,
+              CityName: "Pune",
+              StateId: 1
+            },
+            {
+              Id: 2,
+              CityName: "Mumbai",
+              StateId: 1
+            },
+            {
+              Id: 3,
+              CityName: "Bhopal",
+              StateId: 2
+            }];
+            $scope.guardian = {}
+            $scope.countrylist = countrylist;
+            $scope.statelist = statelist;
+            $scope.citylist = citylist;
 
         let websites = [
             {name: "facebook", likes: 0, dislikes:0},
@@ -185,6 +203,13 @@ let myApp = angular
         ];
         $scope.cutfilter = cutfilter;
 
+        let employeelist = [
+            {name: "Ravi Kant", Gender: "Male", Salary: 23000},
+            {name: "Anil Kumar", Gender: "Male", Salary: 28000},
+            {name: "Bhawna", Gender: "Female", Salary: 33000},
+            {name: "Subhas Katariya", Gender: "Male", Salary: 23000}
+        ];
+        $scope.employeelist = employeelist;
     });
 
     

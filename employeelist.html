@@ -1,0 +1,22 @@
+<script src="angular.js"></script>
+	<script src="main.js"></script>
+	<!--<script src="angular.min.js.map"></script>-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <div ng-app="myModule"></div>
+<table ng-controller="myController">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="employee in employeelist">
+                <td>{{employeelist.name}}</td>
+                <td>{{employeelist.Gender}}</td>
+                <td>{{employeelist.Salary}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
