@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.js"></script>
+<script src="main.js"></script>
+<link rel="stylesheet" href="style.css">
+<!--<script src="angular.min.js.map"></script>-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body ng-app="myModule">
+   <div>
+    {{error}}
+    <table ng-controller="myController" width="50%" cellspacing="10" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th >Salary</th>
+                
+
+            </tr>
+        </thead>
+        <tr ng-repeat="cutfilter in cutfilter">
+            <td>{{cutfilter.name}}</td>
+            <td>{{cutfilter.gender}}</td>
+            <td>{{cutfilter.Salary}}</td>
+          
+           
+        </tr>
+    </table>
+   </div> 
+   
+</body>
+</html>

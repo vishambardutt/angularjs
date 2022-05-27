@@ -8,64 +8,12 @@
 	<title>Angular Js</title>
 	<script src="angular.js"></script>
 	<script src="main.js"></script>
-	<!--<script src="angular.min.js.map"></script>-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<style>
-		td,
-		th {
-			border: 1px solid rgb(190, 190, 190);
-			padding: 10px;
-			cursor: pointer;
-		}
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js">
+    </script>
+	<link rel="stylesheet" href="style.css">
+	<script scr="script.js"></script>
 
-		td {
-			text-align: center;
-		}
-
-		tr:nth-child(even) {
-			background-color: #eee;
-		}
-
-		th[scope="col"] {
-			background-color: #696969;
-			color: #fff;
-		}
-
-		th[scope="row"] {
-			background-color: #d7d9f2;
-		}
-
-		caption {
-			padding: 10px;
-			caption-side: bottom;
-		}
-
-		table {
-			border-collapse: collapse;
-			border: 2px solid rgb(200, 200, 200);
-			letter-spacing: 1px;
-			font-family: sans-serif;
-
-		}
-
-		.arrow-up {
-			width: 0;
-			height: 0;
-			border-left: 5px solid transparent;
-			border-right: 5px solid transparent;
-			border-top: 10px solid black;
-			display: inline-block;
-		}
-
-		.arrow-down {
-			width: 0;
-			height: 0;
-			border-left: 5px solid transparent;
-			border-right: 5px solid transparent;
-			border-top: 10px solid black;
-			display: inline-block;
-		}
-	</style>
 </head>
 
 <body ng-controller="myController">
@@ -73,374 +21,388 @@
 	<div class="container">
 		{{message}}
 
-		<p></p>
+
 		<div>
 			{{["Vish","Ravi", "Kavita"][2]}}
 		</div>
 		<h3>Controller</h3>
-		<div>
-			<p>First Name: {{employee.firstName}}</p>
-			<p>Last Name: {{employee.lastName}}</p>
-			<p>Gender: {{employee.gender}}</p>
-		</div>
-		<h3>Binding Method </h3>
-		<div>
-			<p>Name: {{cntry.name}}</p>
-			<p>Capital: {{cntry.capital}}</p>
-			<p></p>
-			<p>Flag: <img ng-src="{{cntry.flag}}" alt="{{cntry.name + 'flag'}}" style="height:32px; width:50px;" /></p>
+	<div>
+		<p>First Name: {{employee.firstName}}</p>
+		<p>Last Name: {{employee.lastName}}</p>
+		<p>Gender: {{employee.gender}}</p>
+	</div>
+	<h3>Binding Method </h3>
+	<div>
+		<p>Name: {{cntry.name}}</p>
+		<p>Capital: {{cntry.capital}}</p>
+		<p></p>
+		<p>Flag: <img ng-src="{{cntry.flag}}" alt="{{cntry.name + 'flag'}}" style="height:32px; width:50px;" /></p>
 
-		</div>
-		<h3>TWO WAY DATA BINDING</h3>
-		<div>
-			<input type="text" ng-model="greeting" />
-			<br>
-			{{newmessage}}
-			<br>
-			{{greeting}}
-			<p>
-			<table width="50%">
+	</div>
+	<h3>TWO WAY DATA BINDING</h3>
+	<div>
+		<input type="text" ng-model="greeting" />
+		<br>
+		{{newmessage}}
+		<br>
+		{{greeting}}
+		<p>
+		<table width="50%">
+			<tr>
+				<td>First Name:</td>
+				<td>
+					<input type="text" ng-model="student.firstName" />
+				</td>
+			</tr>
+			<tr>
+				<td>Last Name:</td>
+				<td>
+					<input type="text" ng-model="student.lastName" />
+				</td>
+			</tr>
+			<tr>
+				<td>Gender:</td>
+				<td>
+					<input type="text" ng-model="student.gender" />
+				</td>
+			</tr>
+		</table>
+		</p>
+		<p>
+		<table width="50%">
+			<tr>
+				<td>First Name:</td>
+				<td>
+					{{student.firstName}}
+				</td>
+			</tr>
+			<tr>
+				<td>Last Name:</td>
+				<td>
+					{{student.lastName}}
+				</td>
+			</tr>
+			<tr>
+				<td>Gender:</td>
+				<td>
+					{{student.gender}}
+				</td>
+			</tr>
+		</table>
+		</p>
+	</div>
+	<h3>NG REPEAT DIRECTIVE</h3>
+	<div>
+		<table cellpadding="10" cellspacing="10" width="50%">
+			<thead>
 				<tr>
-					<td>First Name:</td>
-					<td>
-						<input type="text" ng-model="student.firstName" />
-					</td>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Gender</th>
+					<th>Salary</th>
 				</tr>
-				<tr>
-					<td>Last Name:</td>
-					<td>
-						<input type="text" ng-model="student.lastName" />
-					</td>
+			</thead>
+			<tbody>
+				<tr ng-repeat="cemp in cemp">
+					<td>{{cemp.firstName}}</td>
+					<td>{{cemp.lastName}}</td>
+					<td>{{cemp.Gender}}</td>
+					<td>{{cemp.Salary}}</td>
 				</tr>
-				<tr>
-					<td>Gender:</td>
-					<td>
-						<input type="text" ng-model="student.gender" />
-					</td>
-				</tr>
-			</table>
-			</p>
-			<p>
-			<table width="50%">
-				<tr>
-					<td>First Name:</td>
-					<td>
-						{{student.firstName}}
-					</td>
-				</tr>
-				<tr>
-					<td>Last Name:</td>
-					<td>
-						{{student.lastName}}
-					</td>
-				</tr>
-				<tr>
-					<td>Gender:</td>
-					<td>
-						{{student.gender}}
-					</td>
-				</tr>
-			</table>
-			</p>
-		</div>
-		<h3>NG REPEAT DIRECTIVE</h3>
-		<div>
-			<table cellpadding="10" cellspacing="10" width="50%">
-				<thead>
-					<tr>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Gender</th>
-						<th>Salary</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="cemp in cemp">
-						<td>{{cemp.firstName}}</td>
-						<td>{{cemp.lastName}}</td>
-						<td>{{cemp.Gender}}</td>
-						<td>{{cemp.Salary}}</td>
-					</tr>
-				</tbody>
+			</tbody>
 
 
-			</table>
-			<div>
-				<h3>COUNTRY CITY FILTER</h3>
-				<div>
-					<label for="Country">country :</label>
+		</table>
+		<div class="container">
+			<h3>COUNTRY CITY FILTER</h3>
+			<div >
+				<label for="Country">country :</label>
 
-					<select class="form-control" id="country" name="country" ng-model="guardian.country"
-						ng-options="country as country.CountryName for country in countrylist track by country.CountryName">
-						<option value=''>Select</option>
-					</select>
-					<label>{{strCountry}}</label>
-				</div>
-				<div>
-					<label for="State">State :</label>
-					<select class="form-control" required id="state" name="state" ng-disabled="!guardian.country"
-						ng-model="guardian.state"
-						ng-options="state as state.StateName for state in statelist | filter:{CountryId:guardian.country.Id} track by state.StateName ">
-						<option value=''>Select</option>
-					</select>
-					<label>{{strState}}</label>
-				</div>
-				<div>
-					<label for="City">City :</label>
-				</div>
-				<select class="form-control" id="city" name="city" ng-disabled="!guardian.country || !guardian.state"
-					ng-model="guardian.city"
-					ng-options="city as city.CityName for city in citylist | filter:{StateId:guardian.state.Id} track by city.CityName">
+				<select class="form-control" id="country" name="country" ng-model="guardian.country"
+					ng-options="country as country.CountryName for country in countrylist track by country.CountryName">
 					<option value=''>Select</option>
 				</select>
-				<label>{{strCity}}</label>
+				<label>{{strCountry}}</label>
 			</div>
-			<br><br><br>
-			<h3>HANDLING EVENTS </h3>
-			<P>
-			<table cellpadding="10" cellspacing="10" width="50%">
+			<div >
+				<label for="State">State :</label>
+				<select class="form-control" required id="state" name="state" ng-disabled="!guardian.country"
+					ng-model="guardian.state"
+					ng-options="state as state.StateName for state in statelist | filter:{CountryId:guardian.country.Id} track by state.StateName ">
+					<option value=''>Select</option>
+				</select>
+				<label>{{strState}}</label>
+			</div>
+			<div>
+				<label for="City">City :</label>
+			</div>
+			<select class="form-control" id="city" name="city" ng-disabled="!guardian.country || !guardian.state"
+				ng-model="guardian.city"
+				ng-options="city as city.CityName for city in citylist | filter:{StateId:guardian.state.Id} track by city.CityName">
+				<option value=''>Select</option>
+			</select>
+			<label>{{strCity}}</label>
+		</div>
+		<br><br><br>
+		<h3>HANDLING EVENTS </h3>
+		<P>
+		<table cellpadding="10" cellspacing="10" width="50%">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Likes</th>
+					<th>Dislikes</th>
+					<th>Like/Dislike</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="website in websites">
+					<td>{{website.name}}</td>
+					<td>{{website.likes}}</td>
+					<td>{{website.dislikes}}</td>
+					<td>
+						<input type="button" value="Like" ng-click="incrementLikes(website)">
+						<input type="button" value="Dislike" ng-click="incrementDislikes(website)">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</P>
+		<h3>FILTERS </h3>
+		<div>
+			<p>Rows To Display:<input type="number" step"1" min="0" max="7" ng-model="rowLimit" /></p>
+			<table>
 				<thead>
 					<tr>
 						<th>Name</th>
-						<th>Likes</th>
-						<th>Dislikes</th>
-						<th>Like/Dislike</th>
+						<th>Date of Birth</th>
+						<th>Gender</th>
+						<th>Salary (Number)</th>
+						<th>Salary (Currency)</th>
+
 					</tr>
 				</thead>
-				<tbody>
-					<tr ng-repeat="website in websites">
-						<td>{{website.name}}</td>
-						<td>{{website.likes}}</td>
-						<td>{{website.dislikes}}</td>
-						<td>
-							<input type="button" value="Like" ng-click="incrementLikes(website)">
-							<input type="button" value="Dislike" ng-click="incrementDislikes(website)">
-						</td>
-					</tr>
-				</tbody>
+				<tr ng-repeat="empList in empLists | limitTo:rowLimit">
+					<td>{{empList.name |uppercase}}</td>
+					<td>{{empList.dateofBirth |date:"dd/mm/yyyy"}}</td>
+					<td>{{empList.Gender | lowercase}}</td>
+					<td>{{empList.Salary |number:2 }}</td>
+					<td>{{empList.Salary | currency:INR :1 }}</td>
+				</tr>
 			</table>
-			</P>
-			<h3>FILTERS </h3>
-			<div>
-				<p>Rows To Display:<input type="number" step"1" min="0" max="7" ng-model="rowLimit" /></p>
-				<table>
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Date of Birth</th>
-							<th>Gender</th>
-							<th>Salary (Number)</th>
-							<th>Salary (Currency)</th>
-
-						</tr>
-					</thead>
-					<tr ng-repeat="empList in empLists | limitTo:rowLimit">
-						<td>{{empList.name |uppercase}}</td>
-						<td>{{empList.dateofBirth |date:"dd/mm/yyyy"}}</td>
-						<td>{{empList.Gender | lowercase}}</td>
-						<td>{{empList.Salary |number:2 }}</td>
-						<td>{{empList.Salary | currency:INR :1 }}</td>
-					</tr>
-				</table>
-			</div>
-			<h3>SHORTING DATA</h3>
-			<div>
-				OrderBy: <select ng-model="sortColumn">
-					<option value="name" selected>Name ASC</option>
-					<option value="dateOfBirth">Date of Birth ASC</option>
-					<option value="Gender">Gender ASC</option>
-					<option value="Salary">Salary ASC</option>
-				</select>
-				<table>
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Date of Birth</th>
-							<th>Gender</th>
-							<th>Salary (Number)</th>
-							<th>Salary (Currency)</th>
-
-						</tr>
-					</thead>
-					<tr ng-repeat="empList in empLists | orderBy:sortColumn">
-						<td>{{empList.name |uppercase}}</td>
-						<td>{{empList.dateofBirth |date:"dd/mm/yyyy"}}</td>
-						<td>{{empList.Gender | lowercase}}</td>
-						<td>{{empList.Salary |number:2 }}</td>
-						<td>{{empList.Salary | currency:INR :1 }}</td>
-					</tr>
-				</table>
-			</div>
-			<h3>SHORT ROW BY TABLE HEADER</h3>
-			<div>
-
-				<table width="50%">
-					<thead>
-						<tr>
-							<th ng-click="sortData('name')">Name
-								<div ng-class="getSortClass('name')"></div>
-							</th>
-							<th ng-click="sortData('dateOfBirth')">Date of Birth
-								<div ng-class="getSortClass('dateOfBirth')"></div>
-							</th>
-							<th ng-click="sortData('Gender')">Gender
-								<div ng-class="getSortClass('Gender')"></div>
-							</th>
-							<th ng-click="sortData('Salary')">Salary (Number)
-								<div ng-class="getSortClass('Salary')"></div>
-							</th>
-
-
-						</tr>
-					</thead>
-					<tr ng-repeat="pData in pData | orderBy:sortColumn:reverseSort">
-						<td>{{pData.pname }}</td>
-						<td>{{pData.date_ofBirth | date:"dd/mm/yyyy"}}</td>
-						<td>{{pData.gender}}</td>
-						<td>{{pData.salary}}</td>
+		</div>
+		<h3>SHORTING DATA</h3>
+		<div>
+			OrderBy: <select ng-model="sortColumn">
+				<option value="name" selected>Name ASC</option>
+				<option value="dateOfBirth">Date of Birth ASC</option>
+				<option value="Gender">Gender ASC</option>
+				<option value="Salary">Salary ASC</option>
+			</select>
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Date of Birth</th>
+						<th>Gender</th>
+						<th>Salary (Number)</th>
+						<th>Salary (Currency)</th>
 
 					</tr>
-				</table>
-			</div>
-			<h3>SEARCH FILTER</h3>
-			<P>
-			<div>
-				<p>Search: <input type="text" placeholder="Search " ng-model="searchText" /></p>
-				<table width="50%">
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>City</th>
-							<th>Gender</th>
-							<th>Salary </th>
+				</thead>
+				<tr ng-repeat="empList in empLists | orderBy:sortColumn">
+					<td>{{empList.name |uppercase}}</td>
+					<td>{{empList.dateofBirth |date:"dd/mm/yyyy"}}</td>
+					<td>{{empList.Gender | lowercase}}</td>
+					<td>{{empList.Salary |number:2 }}</td>
+					<td>{{empList.Salary | currency:INR :1 }}</td>
+				</tr>
+			</table>
+		</div>
+		<h3>SHORT ROW BY TABLE HEADER</h3>
+		<div>
 
+			<table width="50%">
+				<thead>
+					<tr>
+						<th ng-click="sortData('name')">Name
+							<div ng-class="getSortClass('name')"></div>
+						</th>
+						<th ng-click="sortData('dateOfBirth')">Date of Birth
+							<div ng-class="getSortClass('dateOfBirth')"></div>
+						</th>
+						<th ng-click="sortData('Gender')">Gender
+							<div ng-class="getSortClass('Gender')"></div>
+						</th>
+						<th ng-click="sortData('Salary')">Salary (Number)
+							<div ng-class="getSortClass('Salary')"></div>
+						</th>
 
-						</tr>
-					</thead>
-					<tr ng-repeat="searchPeople in searchPeople | filter:searchText">
-						<td>{{searchPeople.name}}</td>
-						<td>{{searchPeople.city}}</td>
-						<td>{{searchPeople.Gender}}</td>
-						<td>{{searchPeople.Salary}}</td>
 
 					</tr>
-				</table>
-				</P>
-				<h3>MULTI PROPERTY SEARCH</h3>
-				<p>Search: <input type="text" ng-model="searchText.name" placeholder="Search Name" />
-					<input type="text" ng-model="searchText.city" placeholder="Search City" />
-					<input type="checkbox" ng-model="exactSearch" />Exact Match
-				</p>
+				</thead>
+				<tr ng-repeat="pData in pData | orderBy:sortColumn:reverseSort">
+					<td>{{pData.pname }}</td>
+					<td>{{pData.date_ofBirth | date:"dd/mm/yyyy"}}</td>
+					<td>{{pData.gender}}</td>
+					<td>{{pData.salary}}</td>
 
-				<p>
-
-				<table width="50%">
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>City</th>
-							<th>Gender</th>
-							<th>Salary </th>
-
-
-						</tr>
-					</thead>
-					<tr ng-repeat="searchPeople in searchPeople | filter:searchText:exactMatch">
-						<td>{{searchPeople.name}}</td>
-						<td>{{searchPeople.city}}</td>
-						<td>{{searchPeople.Gender}}</td>
-						<td>{{searchPeople.Salary}}</td>
-
-					</tr>
-				</table>
-				</p>
-			</div>
-			<h3>CUSTOM FILTER</h3>
-			<p>
+				</tr>
+			</table>
+		</div>
+		<h3>SEARCH FILTER</h3>
+		<P>
+		<div>
+			<p>Search: <input type="text" placeholder="Search " ng-model="searchText" /></p>
 			<table width="50%">
 				<thead>
 					<tr>
 						<th>Name</th>
+						<th>City</th>
 						<th>Gender</th>
 						<th>Salary </th>
 
 
 					</tr>
 				</thead>
-				<tr ng-repeat="cutfilter in cutfilter">
-					<td>{{cutfilter.name}}</td>
-					<td>{{cutfilter.gender | gender}}</td>
-					<td>{{cutfilter.Salary}}</td>
+				<tr ng-repeat="searchPeople in searchPeople | filter:searchText">
+					<td>{{searchPeople.name}}</td>
+					<td>{{searchPeople.city}}</td>
+					<td>{{searchPeople.Gender}}</td>
+					<td>{{searchPeople.Salary}}</td>
 
 				</tr>
 			</table>
+			</P>
+			<h3>MULTI PROPERTY SEARCH</h3>
+			<p>Search: <input type="text" ng-model="searchText.name" placeholder="Search Name" />
+				<input type="text" ng-model="searchText.city" placeholder="Search City" />
+				<input type="checkbox" ng-model="exactSearch" />Exact Match
 			</p>
-			<h3>HIDE AND SHOW DIRECTIVE</h3>
-			<P><input type="checkbox" ng-model="hideSalary" /> Hide Salary</P><br>
-			<table>
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Gender</th>
-						<th ng-hide="hideSalary">Salary </th>
 
-
-					</tr>
-				</thead>
-				<tr ng-repeat="cutfilter in cutfilter">
-					<td>{{cutfilter.name}}</td>
-					<td>{{cutfilter.gender | gender}}</td>
-					<td ng-hide="hideSalary">{{cutfilter.Salary}}</td>
-
-				</tr>
-			</table>
-			</P>
-
-			<P><input type="checkbox" ng-model="hideSalary" /> Hide Salary</P><br>
-			<table>
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Gender</th>
-						<th ng-hide="hideSalary">Salary </th>
-						<th ng-show="hideSalary">Salary </th>
-
-
-					</tr>
-				</thead>
-				<tr ng-repeat="cutfilter in cutfilter">
-					<td>{{cutfilter.name}}</td>
-					<td>{{cutfilter.gender | gender}}</td>
-					<td ng-hide="hideSalary">{{cutfilter.Salary}}</td>
-					<td ng-show="hideSalary">####</td>
-
-				</tr>
-			</table>
-			</P>
-			<p>NG INIT DIRECTIVE</p>
-			<div ng-init=""">
-<table>
-	<thead>
-		<th>Name</th>
-		<th>Gender</th>
-		<th>Salary</th>
-	</thead>
-	<tbody>
-		<tr ng-repeat=" culfilter in culfilter">
-				<td>{{culfilter.name}}</td>
-				<td>{{culfilter.gender}}</td>
-				<td>{{culfilter.Salary}}</td>
-
-				</tr>
-				</tbody>
-				</table>
-
-			</div>
 			<p>
-				<h3>NG INCLUDE DIRECTIVE</h3>
-				<div ng-include="'employeelist.html'"></div>
+
+			<table width="50%">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>City</th>
+						<th>Gender</th>
+						<th>Salary </th>
+
+
+					</tr>
+				</thead>
+				<tr ng-repeat="searchPeople in searchPeople | filter:searchText:exactMatch">
+					<td>{{searchPeople.name}}</td>
+					<td>{{searchPeople.city}}</td>
+					<td>{{searchPeople.Gender}}</td>
+					<td>{{searchPeople.Salary}}</td>
+
+				</tr>
+			</table>
 			</p>
 		</div>
+		<h3>CUSTOM FILTER</h3>
+		<p>
+		<table width="50%">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Gender</th>
+					<th>Salary </th>
+
+
+				</tr>
+			</thead>
+			<tr ng-repeat="cutfilter in cutfilter">
+				<td>{{cutfilter.name}}</td>
+				<td>{{cutfilter.gender | gender}}</td>
+				<td>{{cutfilter.Salary}}</td>
+
+			</tr>
+		</table>
+		</p>
+		<h3>HIDE AND SHOW DIRECTIVE</h3>
+		<P><input type="checkbox" ng-model="hideSalary" /> Hide Salary</P><br>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Gender</th>
+					<th ng-hide="hideSalary">Salary </th>
+
+
+				</tr>
+			</thead>
+			<tr ng-repeat="cutfilter in cutfilter">
+				<td>{{cutfilter.name}}</td>
+				<td>{{cutfilter.gender | gender}}</td>
+				<td ng-hide="hideSalary">{{cutfilter.Salary}}</td>
+
+			</tr>
+		</table>
+		</P>
+
+		<P><input type="checkbox" ng-model="hideSalary" /> Hide Salary</P><br>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Gender</th>
+					<th ng-hide="hideSalary">Salary </th>
+					<th ng-show="hideSalary">Salary </th>
+
+
+				</tr>
+			</thead>
+			<tr ng-repeat="cutfilter in cutfilter">
+				<td>{{cutfilter.name}}</td>
+				<td>{{cutfilter.gender | gender}}</td>
+				<td ng-hide="hideSalary">{{cutfilter.Salary}}</td>
+				<td ng-show="hideSalary">####</td>
+
+			</tr>
+		</table>
+		</P>
+		<p>NG INIT DIRECTIVE</p>
+		<div>
+			<table>
+				<thead>
+					<th>Name</th>
+					<th>Gender</th>
+					<th>Salary</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat=" culfilter in culfilter">
+						<td>{{culfilter.name}}</td>
+						<td>{{culfilter.gender}}</td>
+						<td>{{culfilter.Salary}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<h3>https SERVICE</h3>
+		<p>
+
+			<h1>{{employeeData}}</h1>
+		</p>
+<p>
+	
+	<table>
+	<tr>
+	   <th>Name</th>
+	   <th>Goals</th>
+	   <th>Ratio</th>
+	</tr>
+	<tr ng-repeat="students in students">
+	   <td>{{ sdata.Name }}</td>
+	   <td>{{ sdata.Goals}}</td>
+	   <td>{{ sdata.Ratio}}</td>
+	</tr>
+</table></p>
+	</div>
+	
 </body>
 
 </html>

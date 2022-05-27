@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.js"></script>
+	<script src="main.js"></script>
+	<!--<script src="angular.min.js.map"></script>-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script>
+        var templateSelect = element(by.model('template'));
+var includeElem = element(by.css('[ng-include]'));
+
+it('should load employlistTable.html', function() {
+  expect(includeElem.getText()).toMatch(/Content of employlistTable.html/);
+});
+
+it('should load employeelist.html', function() {
+  if (browser.params.browser === 'firefox') {
+    // Firefox can't handle using selects
+    // See https://github.com/angular/protractor/issues/480
+    return;
+  }
+  templateSelect.click();
+  templateSelect.all(by.css('option')).get(2).click();
+  expect(includeElem.getText()).toMatch(/Content of employeelist.html/);
+});
+
+it('should change to blank', function() {
+  if (browser.params.browser === 'firefox') {
+    // Firefox can't handle using selects
+    return;
+  }
+  templateSelect.click();
+  templateSelect.all(by.css('option')).get(0).click();
+  expect(includeElem.isPresent()).toBe(false);
+});
+        </script>
+</head>
+<body ng-app="myModule">
+    <div ng-congroller="myController">
+        Select View:<select ng-model="employeelistView">
+            <option  value="employeelisttable.html">Table</option>
+            <option  value="employeelist.html">List</option>
+        </select>
+        <div ng-include="employeelistView"></div>
+    </div>
+    
+</body>
+</html>

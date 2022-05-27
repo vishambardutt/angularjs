@@ -31,7 +31,37 @@ let myApp = angular
             }
         }
     })
-    .controller("myController", function ($scope) {
+    
+
+    .controller("myController", function ($scope, $http,$log) {
+      
+        $http({
+            method : "GET",
+              url : "employeeData.htm"
+          }).then(function mySuccess(response) {
+            $scope.employeeData = response.data;
+          }, function myError(response) {
+            $scope.employeeData = response.statusText;
+          });
+
+          //
+          $http({
+            method : "GET",
+              url : "./data/people-data.txt"
+          }).then(function mySuccess(response) {
+            $scope.students = response.data;
+          }, function myError(response) {
+            $scope.students = response.statusText;
+          });
+          //
+   // $http.GET, url ('employeeData.html/GetAllEmployee')
+      //  .then(function (response){
+       //     $scope.cutfilter = response.data;
+       //     $log.info(response);
+      //  }, function (reason){
+      //      $scope.error = reason.data;
+      //      $log.info (reason);
+     //   });
         let employee = {
             firstName: "Vishnu",
             lastName: "Jakhmola",
@@ -210,7 +240,9 @@ let myApp = angular
             {name: "Subhas Katariya", Gender: "Male", Salary: 23000}
         ];
         $scope.employeelist = employeelist;
+        $scope.employeelistView = "employeelistTable.html";
+
     });
 
-    
+
 
